@@ -1,6 +1,8 @@
 # ha_localweather
 Home assistant local weather dashboard
 
+<img src="pic_trulli.jpg" alt="Italian Trulli">
+
 |dependancies|
 |-|
 |<a href="https://www.amazon.com/AcuRite-Wireless-Weather-Station-Monitoring/dp/B06XNPKKNZ/ref=sr_1_7?keywords=acurite+5in1+weather+station&qid=1678805983&sprefix=acurite+5i%2Caps%2C267&sr=8-7&ufe=app_do%3Aamzn1.fos.18ed3cb5-28d5-4975-8bc7-93deae8f9840">Acurite 5in1 weatherstation</a>|

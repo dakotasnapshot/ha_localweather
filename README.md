@@ -22,7 +22,6 @@ Home assistant local weather dashboard
 |https://community.home-assistant.io/t/lovelace-rss-feed-parser-plugin-list-card/64637|
 |https://github.com/custom-components/feedparser|
 |<a href="https://youtu.be/dqTn-Gk4Qeo">MQTT Server Setup</a>|
-|<a href="https://youtu.be/_COwsvkxyFA">SDR Pi setup</a>|
 |https://www.weather.gov/rss|
 
 iOS push notifications for severe weather events as well as homekit verbal announcements via google tts. 

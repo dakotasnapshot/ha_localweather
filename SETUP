@@ -1,5 +1,8 @@
 on the SDR Pi once setup with following this video https://youtu.be/_COwsvkxyFA
 
+Use this Pi Image that some preloaded with the needed SDR repositories https://github.com/luigifcruz/pisdr-image
+Flash the image to the Pi SD using the pi imager https://www.raspberrypi.com/software/
+
 #Run the following commands
 $sudo nano /etc/systemd/system/rtl433.service
 

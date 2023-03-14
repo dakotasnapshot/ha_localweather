@@ -1,7 +1,7 @@
 # ha_localweather
 Home assistant local weather dashboard
 
-<img src="pic_trulli.jpg" alt="Italian Trulli">
+<img src="Dashboard Screenshot 1.png" alt="Dashboard">
 
 |dependancies|
 |-|

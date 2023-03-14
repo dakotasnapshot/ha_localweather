@@ -1,0 +1,265 @@
+#Use these yaml syntax to create your lovelace dashboard
+
+#Table Card for NWS Alerts
+type: custom:list-card
+entity: sensor.nws_feed
+title: NWS Local Feed
+feed_attribute: entries
+columns:
+  - title: Updated (UTC)
+    field: updated
+  - title: Title
+    field: title
+    
+#Horizontal Stack Card Configuration
+##Stack 1
+type: custom:button-card
+entity: sensor.nws_alerts
+icon: mdi:alert
+name: NWS Alert
+state:
+  - color: gray
+    value: 0
+  - color: red
+    value: 1
+    
+ ##Stack 2
+ type: custom:mini-graph-card
+entities:
+  - sensor.outdoor_humidity
+color_thresholds:
+  - value: 20
+    color: '#fa5a5a'
+  - value: 31
+    color: '#fa9f5a'
+  - value: 45
+    color: '#fae75a'
+  - value: 60
+    color: '#e5fa5a'
+  - value: 70
+    color: '#0cfabb'
+  - value: 80
+    color: '#0cdafa'
+  - value: 90
+    color: '#0c77fa'
+line_width: 2
+font_size: 75
+hours_to_show: 24
+points_per_hour: 12
+
+##Stack 3
+type: custom:mini-graph-card
+entities:
+  - sensor.outdoor_humidity
+color_thresholds:
+  - value: 20
+    color: '#fa5a5a'
+  - value: 31
+    color: '#fa9f5a'
+  - value: 45
+    color: '#fae75a'
+  - value: 60
+    color: '#e5fa5a'
+  - value: 70
+    color: '#0cfabb'
+  - value: 80
+    color: '#0cdafa'
+  - value: 90
+    color: '#0c77fa'
+line_width: 2
+font_size: 75
+hours_to_show: 24
+points_per_hour: 12
+
+
+#Tempurature Card
+type: custom:mini-graph-card
+name: Temperature
+entities:
+  - entity: sensor.outdoor_temperature
+group: false
+height: 220
+hour24: false
+line_width: 4
+points_per_hour: 12
+show:
+  extrema: true
+  average: true
+  fill: fade
+  icon: true
+  labels: false
+  name: true
+  state: true
+color_thresholds:
+  - color: '#e45e65'
+    value: 80
+  - color: '#e0b400'
+    value: 40
+  - color: '#0da035'
+    value: 20
+  - color: '#039BE5'
+    value: -1
+hours_to_show: 168
+
+
+#Wind Compas Card
+type: custom:compass-card
+header:
+  title:
+    value: Wind
+indicator_sensors:
+  - sensor: sensor.wind_direction
+    indicator:
+      type: arrow_inward
+value_sensors:
+  - sensor: sensor.wind_speed
+
+
+#Forecast Card (https://www.home-assistant.io/integrations/openweathermap/)
+type: custom:clock-weather-card
+entity: weather.openweathermap
+sun_entity: sun.sun
+temperature_sensor: sensor.outdoor_temperature
+weather_icon_type: line
+animated_icon: true
+forecast_days: 5
+time_format: 12
+hide_today_section: false
+hide_forecast_section: false
+hide_clock: false
+hide_date: false
+
+#Sun Card (https://github.com/AitorDB/home-assistant-sun-card)
+type: custom:sun-card
+
+#Humidity Card
+type: custom:mini-graph-card
+entities:
+  - entity: sensor.outdoor_humidity
+    aggregate_func: min
+    name: Min
+    labels: false
+  - entity: sensor.outdoor_humidity
+    aggregate_func: avg
+    name: Avg
+    color: green
+    labels: false
+  - entity: sensor.outdoor_humidity
+    aggregate_func: max
+    name: Max
+    color: null
+    labels: false
+name: Humidity outside daily (last week)
+hours_to_show: 168
+hour24: false
+group_by: date
+line_width: 2
+font_size: 75
+show:
+  extrema: true
+  average: true
+  fill: fade
+  icon: true
+  labels: false
+  name: true
+  state: true
+
+#Alerts on/off button card
+type: entities
+entities:
+  - automation.weather_alert_to_apple_tv
+  - automation.nws_ios
+
+#Wind Speed graph with min max
+type: custom:mini-graph-card
+name: Wind Speed
+entities:
+  - entity: sensor.wind_speed
+group: false
+height: 220
+hour24: false
+line_width: 4
+points_per_hour: 12
+show:
+  extrema: true
+  average: true
+  fill: fade
+  icon: true
+  labels: false
+  name: true
+  state: true
+color_thresholds:
+  - color: '#e45e65'
+    value: 80
+  - color: '#e0b400'
+    value: 40
+  - color: '#0da035'
+    value: 20
+  - color: '#039BE5'
+    value: -1
+hours_to_show: 168
+
+
+#Wind Speed Guage
+type: gauge
+entity: sensor.wind_speed
+needle: true
+severity:
+  green: 6
+  yellow: 10
+  red: 25
+max: 50
+
+#Nation Weather Service State Alert Table Card
+type: custom:list-card
+entity: sensor.nws_oklahoma_feed
+title: NWS State Feed
+feed_attribute: entries
+columns:
+  - title: Updated (UTC)
+    field: updated
+  - title: Title
+    field: title
+  - title: Summary
+    field: summary
+    
+#Rainfall bar graph card
+type: custom:mini-graph-card
+entities:
+  - sensor.rain_fall
+aggregate_func: max
+group_by: date
+line_color: blue
+show:
+  graph: bar
+  extrema: true
+  average: true
+  fill: fade
+  icon: true
+  labels: false
+  name: true
+  state: true
+line_width: 2
+font_size: 75
+hours_to_show: 8765
+points_per_hour: 1
+
+#Battery Graph Card
+type: custom:mini-graph-card
+entities:
+  - entity: sensor.battery
+    name: WS Battery
+name: Weather Station Battery
+hours_to_show: 24
+points_per_hour: 60
+update_interval: 30
+aggregate_func: max
+line_width: 2
+smoothing: false
+state_map:
+  - value: '1'
+    label: Normal
+  - value: '0'
+    label: Low
+  - value: '2'
+    label: High

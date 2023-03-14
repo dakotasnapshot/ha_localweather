@@ -4,6 +4,8 @@ Home assistant local weather dashboard
 <img src="Screenshot 2023-03-14 at 10.27.37 AM.png" alt="SDR Dongle">
 <img src="Screenshot 2023-03-14 at 10.28.44 AM.png" alt="Dashboard">
 
+Follow steps in <a href="SETUP.txt">SETUP.txt</a>
+
 |Dependancies|
 |-|
 |Hardware|

@@ -15,6 +15,7 @@ Home assistant local weather dashboard
 |Software|
 |-|
 |<a href="https://www.home-assistant.io">Home Assistant</a>|
+|<a href="https://github.com/dakotasnapshot/ha_localweather/tree/sdrpi"> SDR Pi Setup</a>
 |https://github.com/kalkih/mini-graph-card|
 |https://github.com/tomvanswam/compass-card|
 |https://www.home-assistant.io/integrations/feedreader/|

@@ -1,0 +1,69 @@
+#RSS Feed Reader for iOS notifications
+feedreader:
+  urls:
+  - https://alerts.weather.gov/cap/wwaatmget.php?x=OKZ020&y=0
+  - https://alerts.weather.gov/cap/ok.php?x=0
+  - http://rss.cnn.com/rss/cnn_topstories.rss
+  scan_interval:
+    minutes: 10
+  max_entries: 5
+
+sensor:
+
+#NWS RSS feed to act as a bianary sensor
+- platform: nws_alerts
+  zone_id: 'OKZ020'
+  
+#NWS RSS State wide to be parsed
+- platform: feedparser    
+  name: NWS Oklahoma Feed
+  feed_url: 'https://alerts.weather.gov/cap/ok.php?x=0'
+  scan_interval:
+    minutes: 10
+  inclusions:
+    - updated
+    - title
+    - summary
+
+#NWS RSS Payne county to be parsed
+- platform: feedparser
+  name: NWS Feed
+  feed_url: 'https://alerts.weather.gov/cap/wwaatmget.php?x=OKZ020&y=0'
+  scan_interval:
+    minutes: 10
+  inclusions:
+    - updated
+    - title
+    - summary
+
+# Outdoor temperature and humidity sensor (Acurite 5n1)
+mqtt:
+  sensor:
+    - name: "Outdoor Temperature"
+      icon: "mdi:thermometer"
+      unique_id: "outdoor_temperature" 
+      state_topic: "rtl_433/sdrpi/devices/Acurite-5n1/A/4093/temperature_F" 
+      unit_of_measurement: "°F"
+    - name: "Outdoor Humidity"
+      icon: "mdi:guage"
+      unique_id: "outdoor_humidity" 
+      state_topic: "rtl_433/sdrpi/devices/Acurite-5n1/A/4093/humidity" 
+      unit_of_measurement: "%"
+    - name: "Wind Speed"
+      icon: "mdi:weather-windy"
+      unique_id: "wind_speed" 
+      state_topic: "rtl_433/sdrpi/devices/Acurite-5n1/A/4093/wind_avg_km_h" 
+      unit_of_measurement: "mph"
+    - name: "Wind Direction"
+      icon: "mdi:weather-windy"
+      unique_id: "wind_direction" 
+      state_topic: "rtl_433/sdrpi/devices/Acurite-5n1/A/4093/wind_dir_deg" 
+      unit_of_measurement: "degrees"
+    - name: "Rain Fall" 
+      unique_id: "rain_fall" 
+      state_topic: "rtl_433/sdrpi/devices/Acurite-5n1/A/4093/rain_in" 
+      unit_of_measurement: "inches"
+    - name: "Battery" 
+      unique_id: "ws_battery" 
+      state_topic: "rtl_433/sdrpi/devices/Acurite-5n1/A/4093/battery_ok" 
+      unit_of_measurement: "bianary"

@@ -27,4 +27,5 @@ Recently moving to Oklahoma, I realize we are more likely to be subject to extre
 |https://www.weather.gov/rss|
 
 iOS push notifications for severe weather events as well as homekit verbal announcements via google tts. 
+<a href="automations">Use this automation listed for iOS and homekit alerts</a>
 

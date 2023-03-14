@@ -1,3 +1,4 @@
+#iOS Push notification via the home assistant app
 alias: NWS Alert iOS
 description: RSS Feedreader to iOS Notification
 trigger:
@@ -16,7 +17,7 @@ action:
       message: "{{ trigger.event.data.summary }}"
 
 
-#####
+#####Audable alert played over homekit devices, apple TV and homepod
 alias: NWS Alert Siri
 description: RSS Feedreader to iOS Notification
 trigger:

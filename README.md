@@ -8,3 +8,5 @@ Home assistant local weather dashboard
 |https://youtu.be/_COwsvkxyFA|
 |https://www.weather.gov/rss|
 
+iOS push notifications for severe weather events as well as homekit verbal announcements. 
+

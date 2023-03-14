@@ -4,6 +4,8 @@ Home assistant local weather dashboard
 <img src="Dashboard Screenshot 1.png" alt="Dashboard">
 <img src="Dashboard Screenshot 2.png" alt="Dashboard">
 
+Recently moving to Oklahoma, I realize we are more likely to be subject to extreme weather-related events. I wanted to take my weather station to the next level.
+
 |Dependancies|
 |-|
 |Hardware|

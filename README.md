@@ -1,4 +1,4 @@
-# ha_localweather
+# ha_localweather with SDRPI
 Home assistant local weather dashboard
 
 <img src="Screenshot 2023-03-14 at 10.27.37 AM.png" alt="SDR Dongle">
@@ -15,7 +15,6 @@ Home assistant local weather dashboard
 |Software|
 |-|
 |<a href="https://www.home-assistant.io">Home Assistant</a>|
-|https://github.com/kalkih/mini-graph-card|
 |<a href="https://youtu.be/dqTn-Gk4Qeo">MQTT Server Setup</a>|
 |<a href="https://youtu.be/_COwsvkxyFA">SDR Pi setup</a>|
 

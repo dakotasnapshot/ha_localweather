@@ -1,8 +1,8 @@
 # ha_localweather
 Home assistant local weather dashboard
 
-<img src="Dashboard Screenshot 1.png" alt="Dashboard">
-<img src="Dashboard Screenshot 2.png" alt="Dashboard">
+<img src="Screenshot 2023-03-14 at 10.27.37 AM.png" alt="SDR Dongle">
+<img src="Screenshot 2023-03-14 at 10.28.44 AM.png" alt="Dashboard">
 
 |Dependancies|
 |-|
@@ -16,13 +16,6 @@ Home assistant local weather dashboard
 |-|
 |<a href="https://www.home-assistant.io">Home Assistant</a>|
 |https://github.com/kalkih/mini-graph-card|
-|https://github.com/tomvanswam/compass-card|
-|https://www.home-assistant.io/integrations/feedreader/|
-|https://community.home-assistant.io/t/lovelace-rss-feed-parser-plugin-list-card/64637|
-|https://github.com/custom-components/feedparser|
 |<a href="https://youtu.be/dqTn-Gk4Qeo">MQTT Server Setup</a>|
 |<a href="https://youtu.be/_COwsvkxyFA">SDR Pi setup</a>|
-|https://www.weather.gov/rss|
-
-iOS push notifications for severe weather events as well as homekit verbal announcements via google tts. 
 

@@ -1,0 +1,53 @@
+alias: NWS Alert iOS
+description: RSS Feedreader to iOS Notification
+trigger:
+  - platform: event
+    event_type: feedreader
+    event_data:
+      feed_url: https://alerts.weather.gov/cap/wwaatmget.php?x=OKZ020&y=0
+condition:
+  - condition: numeric_state
+    entity_id: sensor.nws_alerts
+    above: 0
+action:
+  - service: notify.mobile_app_iphone_14_pro_max
+    data:
+      title: "{{ trigger.event.data.title }}"
+      message: "{{ trigger.event.data.summary }}"
+
+
+#####
+alias: NWS Alert Siri
+description: RSS Feedreader to iOS Notification
+trigger:
+  - platform: event
+    event_type: feedreader
+    event_data:
+      feed_url: https://alerts.weather.gov/cap/wwaatmget.php?x=OKZ020&y=0
+condition:
+  - condition: numeric_state
+    entity_id: sensor.nws_alerts
+    above: 0
+action:
+  - service: tts.google_translate_say
+    data:
+      cache: false
+      entity_id: media_player.main_bedroom
+      message: >-
+        Please excuse this interruption, {{ trigger.event.data.title }}, {{
+        trigger.event.data.summary }} , Siri out.
+  - service: tts.google_translate_say
+    data:
+      cache: false
+      entity_id: media_player.kitchen
+      message: >-
+        Please excuse this interruption, {{ trigger.event.data.title }}, {{
+        trigger.event.data.summary }} , Siri out.
+  - service: tts.google_translate_say
+    data:
+      cache: false
+      entity_id: media_player.living_room_2
+      message: >-
+        Please excuse this interruption, {{ trigger.event.data.title }}, {{
+        trigger.event.data.summary }} , Siri out.
+mode: single

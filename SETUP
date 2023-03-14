@@ -1,0 +1,46 @@
+on the SDR Pi once setup with following this video https://youtu.be/_COwsvkxyFA
+
+#Run the following commands
+$sudo nano /etc/systemd/system/rtl433.service
+
+#Paste in the following
+[Unit]
+Description=rtl_433 SDR Receiver Daemon
+After=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/rtl_433 -F json -M utc -F  "mqtt://homeassistant.lan:1883,user=mqtt-user,pass=wf43erdfoimwW!"
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+#Save and close
+
+ $sudo touch /etc/systemd/system/rtl433.service
+ $sudo chmod 664 /etc/systemd/system/rtl433.service
+ $sudo systemctl deamon-reload
+ $sudo systemctl start rtl433
+ $sudo systemctl enable rtl433
+ 
+ $sudo systemctl status rtl433
+ ● rtl433.service - rtl_433 SDR Receiver Daemon
+     Loaded: loaded (/etc/systemd/system/rtl433.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2023-03-06 05:42:37 CST; 1 weeks 1 days ago
+   Main PID: 15747 (rtl_433)
+      Tasks: 2 (limit: 4165)
+        CPU: 5h 17min 29.052s
+     CGroup: /system.slice/rtl433.service
+             └─15747 /usr/local/bin/rtl_433 -F json -M utc -F mqtt://homeassistant.lan 1883 user mqtt-user pass wf43erdfoimwW!
+
+Mar 14 10:21:46 sdrpi rtl_433[15747]: {"time" : "2023-03-14 15:21:46", "model" : "Acurite-5n1", "message_type" : 49, "id" : 4093, "channel" : "A", "sequence_num" : 2, "battery_ok" : 1, "wind_avg_km_h" : 15>
+Mar 14 10:22:04 sdrpi rtl_433[15747]: {"time" : "2023-03-14 15:22:04", "model" : "Acurite-5n1", "message_type" : 56, "id" : 4093, "channel" : "A", "sequence_num" : 0, "battery_ok" : 1, "wind_avg_km_h" : 11>
+Mar 14 10:22:04 sdrpi rtl_433[15747]: {"time" : "2023-03-14 15:22:04", "model" : "Acurite-5n1", "message_type" : 56, "id" : 4093, "channel" : "A", "sequence_num" : 1, "battery_ok" : 1, "wind_avg_km_h" : 11>
+Mar 14 10:22:04 sdrpi rtl_433[15747]: {"time" : "2023-03-14 15:22:04", "model" : "Acurite-5n1", "message_type" : 56, "id" : 4093, "channel" : "A", "sequence_num" : 2, "battery_ok" : 1, "wind_avg_km_h" : 11>
+Mar 14 10:22:22 sdrpi rtl_433[15747]: {"time" : "2023-03-14 15:22:22", "model" : "Acurite-5n1", "message_type" : 49, "id" : 4093, "channel" : "A", "sequence_num" : 0, "battery_ok" : 1, "wind_avg_km_h" : 12>
+Mar 14 10:22:22 sdrpi rtl_433[15747]: {"time" : "2023-03-14 15:22:22", "model" : "Acurite-5n1", "message_type" : 49, "id" : 4093, "channel" : "A", "sequence_num" : 1, "battery_ok" : 1, "wind_avg_km_h" : 12>
+Mar 14 10:22:22 sdrpi rtl_433[15747]: {"time" : "2023-03-14 15:22:22", "model" : "Acurite-5n1", "message_type" : 49, "id" : 4093, "channel" : "A", "sequence_num" : 2, "battery_ok" : 1, "wind_avg_km_h" : 12>
+Mar 14 10:22:40 sdrpi rtl_433[15747]: {"time" : "2023-03-14 15:22:40", "model" : "Acurite-5n1", "message_type" : 56, "id" : 4093, "channel" : "A", "sequence_num" : 0, "battery_ok" : 1, "wind_avg_km_h" : 10>
+Mar 14 10:22:40 sdrpi rtl_433[15747]: {"time" : "2023-03-14 15:22:40", "model" : "Acurite-5n1", "message_type" : 56, "id" : 4093, "channel" : "A", "sequence_num" : 1, "battery_ok" : 1, "wind_avg_km_h" : 10>
+Mar 14 10:22:40 sdrpi rtl_433[15747]: {"time" : "2023-03-14 15:22:40", "model" : "Acurite-5n1", "message_type" : 56, "id" : 4093, "channel" : "A", "sequence_num" : 2, "battery_ok" : 1, "wind_avg_km_h" : 10>
+lines 1-19/19 (END)

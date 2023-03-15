@@ -3,7 +3,7 @@ Home assistant local weather dashboard
 
 <img src="Dashboard Screenshot 1.png" alt="Dashboard">
 <img src="Dashboard Screenshot 2.png" alt="Dashboard">
-
+<img src="40051D0D-6C12-47FE-9AA5-DF6089FEEAE8.jpeg" alt="Solar Weather Ststion">
 Recently moving to Oklahoma, I realize we are more likely to be subject to extreme weather-related events. I wanted to take my weather station to the next level.
 
 |Dependancies|
